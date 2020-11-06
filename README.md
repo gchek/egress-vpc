@@ -1,7 +1,6 @@
 # egress-vpc
 Terraform for egress-vpc
-# One node SDDC 
-Make sure your AWS account is linked to ORG
+Make sure your AWS account is linked to your ORG
 - run Cloud Formation template if not
 
 
