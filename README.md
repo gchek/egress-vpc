@@ -1,4 +1,4 @@
-# egress-vpc
+# Terraform and egress-vpc
 Terraform for egress-vpc
 Make sure your AWS account is linked to your ORG
 - run Cloud Formation template if not
