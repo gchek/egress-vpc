@@ -25,7 +25,7 @@ deploy-lab.sh
 ```
 p1/main/variables.tf
 ```
- - `variable "AWS_region"     {default = "us-west-1"}`
+ - `variable "AWS_region"     {default = "us-west-2"}`
 
   
   
@@ -54,4 +54,4 @@ source deploy-lab.sh
  - FW rules
  > pause (press Enter or ^c)
  
-
+and so on . . .
