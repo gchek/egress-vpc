@@ -1,8 +1,12 @@
 # Terraform and egress-vpc
 Please refer to:
+
 1- http://www.gilles.cloud/2020/10/egress-vpc-and-aws-transit-gateway.html
+
 2- http://www.gilles.cloud/2020/10/adding-vmware-cloud-on-aws-sddc-to.html
+
 3- http://www.gilles.cloud/2020/10/adding-vmware-transit-connect-to-egress.html
+
 
 Make sure your AWS account is linked to your ORG
 - run Cloud Formation template if not
