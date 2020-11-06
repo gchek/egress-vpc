@@ -1,0 +1,3 @@
+
+vmc_token = "gCs8WlleUW3chSdBSo8XEGZm6vaL0P0YiUsrcxzDdnCcbypDOV0QXxBwiWkfZVD6"
+
