@@ -3,7 +3,6 @@
 variable "key_pair"               {}
 variable "VM-AMI"                 {}
 
-
 // VPC 100
 variable "Subnet10-vpc100-A"      {}
 variable "Subnet10-vpc100-Abase"  {}
@@ -103,6 +102,7 @@ resource "aws_instance" "VM1-200" {
     Name = "VM1-VPC200"
   }
 }
+
 resource "aws_network_interface" "VM2-200-Eth0" {
   subnet_id                     = var.Subnet20-vpc200-B
   security_groups               = [var.SG-VPC200]
@@ -120,10 +120,11 @@ resource "aws_instance" "VM2-200" {
     Name = "VM2-VPC200"
   }
 }
+
+
 /*================
 Outputs variables for other modules to use
 =================*/
 
-//output "EC2_IP"           {value = aws_instance.VM1.public_ip}
 output "EC2_JumpHost"     {value = aws_instance.VM1-Egress.public_ip }
 
