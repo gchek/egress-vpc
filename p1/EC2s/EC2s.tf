@@ -1,12 +1,13 @@
 
 
-variable "key_pair"               {}
-variable "VM-AMI"                 {}
+variable "key_pair"                 {}
+variable "VM-AMI"                   {}
+variable "WIN-AMI"                  {}
 
 // Attached  VPC
-variable "Subnet10-Att_vpc"        {}
-variable "Subnet10-Att_vpc-base"   {}
-variable "SG-Att_vpc"              {}
+variable "Subnet10-Att_vpc"         {}
+variable "Subnet10-Att_vpc-base"    {}
+variable "SG-Att_vpc"               {}
 
 
 
@@ -33,11 +34,31 @@ resource "aws_instance" "VM1" {
   }
 }
 
+/*==========================
+Windows Instance in Attached VPC
+===========================*/
+resource "aws_network_interface" "WIN-Eth0" {
+  subnet_id                     = var.Subnet10-Att_vpc
+  security_groups               = [var.SG-Att_vpc]
+  private_ips                   = [cidrhost(var.Subnet10-Att_vpc-base, 111)]
+}
+resource "aws_instance" "Windows" {
+  ami                           = var.WIN-AMI
+  instance_type                 = "t2.micro"
+  network_interface {
+    network_interface_id        = aws_network_interface.WIN-Eth0.id
+    device_index                = 0
+  }
+  key_name                      = var.key_pair
+
+  tags = {
+    Name = "Windows-Attached VPC"
+  }
+}
 
 /*================
 Outputs variables for other modules to use
 =================*/
 
-//output "EC2_IP"           {value = aws_instance.VM1.public_ip}
-//output "EC2_JumpHost"     {value = aws_instance.VM1-Egress.public_ip }
+output "Windows_IP"           {value = aws_instance.Windows.public_ip}
 
