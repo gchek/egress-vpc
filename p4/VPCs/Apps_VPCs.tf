@@ -112,6 +112,9 @@ Default route tables 100-200
 =============================*/
 
 resource "aws_default_route_table" "RT-100" {
+  lifecycle {
+    ignore_changes = [route] # ignore any manually added routes
+  }
   default_route_table_id = aws_vpc.vpc100.default_route_table_id
   route {
     cidr_block = "0.0.0.0/0"
@@ -123,6 +126,9 @@ resource "aws_default_route_table" "RT-100" {
 }
 
 resource "aws_default_route_table" "RT-200" {
+  lifecycle {
+    ignore_changes = [route] # ignore any manually added routes
+  }
   default_route_table_id = aws_vpc.vpc200.default_route_table_id
   route {
     cidr_block = "0.0.0.0/0"
