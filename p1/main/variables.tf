@@ -51,7 +51,8 @@ variable "My_subnets" {
 VM AMIs
 =================*/
 
-variable "VM_AMI"               { default = "ami-0528a5175983e7f28" } # Amazon Linux 2 AMI (HVM), SSD Volume Type - Oregon
+variable "VM_AMI"         { default = "ami-0528a5175983e7f28" } # Amazon Linux 2 AMI (HVM), SSD Volume Type - Oregon
+variable "Win_AMI"        { default = "ami-0d28bf0201017ce45" } # Windows_Server-2019-English-Full-Base-2020.11.11 - Oregon
 
 
 
