@@ -11,6 +11,7 @@ output "cloud_password"         {
   sensitive = true
   value = module.SDDC.cloud_password
 }
+output "Windows_IP"             {value = module.EC2s.Windows_IP }
 
 
 
